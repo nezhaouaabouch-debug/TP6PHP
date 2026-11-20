@@ -2,7 +2,7 @@
 
 require_once "06-connexion.php";
 
-$sql = "SELECT * FROM products";
+$sql = "SELECT * FROM products WHERE price > 300";
 
 $statement = $pdo->query($sql);
 
@@ -26,63 +26,38 @@ $products = $statement->fetchAll(
 
 <body>
 
-    <h1>Liste des produits</h1>
-
+    <h1>Mes produits</h1>
+    
     <?php
 
-    if (count($products) > 0) {
+    if (count($products) > 0) { ?>
+        <table border="1" cellpadding="10">
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total stock</th>
+            </tr>
 
-        foreach ($products as $product) {
-
-    ?>
-
-            <div>
-
-                <h2>
-                    <?php
-                    echo htmlspecialchars(
-                        $product["name"]
-                    );
-                    ?>
-                </h2>
-
-                <p>
-
-                    Prix :
-
-                    <?php
-                    echo $product["price"];
-                    ?>
-
-                    DH
-
-                </p>
-
-                <p>
-
-                    Quantité :
-
-                    <?php
-                    echo $product["quantity"];
-                    ?>
-
-                </p>
-
-            </div>
-
-            <hr>
-
-    <?php
-
-        }
-
-    } else {
-
-        echo "<p>Aucun produit trouvé.</p>";
-
-    }
+      <?php   foreach ($products as $product) {
 
     ?>
+    
+
+            <tr>
+                <td><?php echo htmlspecialchars($product["name"]); ?></td>
+                <td><?php echo $product["price"]; ?> DH</td>
+                <td><?php echo $product["quantity"]; ?></td>
+                <!-- d. Total = price * quantity -->
+                <td><?php echo $product["price"] * $product["quantity"]; ?> DH</td>
+            </tr>
+            <?php } ?>
+
+        </table>
+
+    <?php } else { ?>
+        <p>Aucun produit trouvé.</p>
+    <?php } ?>
 
 </body>
 
