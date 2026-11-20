@@ -32,6 +32,22 @@
         </div>
 
         <br>
+        <div>
+
+            <label for="ville">
+                ville :
+            </label>
+
+            <input
+                type="text"
+                id="ville"
+                name="ville"
+                required
+            >
+
+        </div>
+
+        <br>
 
         <div>
 
@@ -98,12 +114,14 @@
 
     if (
         isset($_POST["nom"])
+        && isset($_POST["ville"])
         && isset($_POST["email"])
         && isset($_POST["age"])
         && isset($_POST["message"])
     ) {
 
         $nom = $_POST["nom"];
+        $ville = $_POST["ville"];
         $email = $_POST["email"];
         $age = $_POST["age"];
         $message = $_POST["message"];
@@ -115,6 +133,9 @@
         echo "<p>";
         echo "Nom : " . htmlspecialchars($nom);
         echo "</p>";
+        echo "<p>";
+        echo "Ville : " . htmlspecialchars($ville);
+        echo "</p>"; 
 
         echo "<p>";
         echo "Email : " . htmlspecialchars($email);
