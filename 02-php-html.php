@@ -1,8 +1,8 @@
 <?php
 
-$nom = "Sara";
-$age = 21;
-
+$nom = "Nazha";
+$age = 20;
+$ville = "Marrakech";
 ?>
 
 <!DOCTYPE html>
@@ -18,16 +18,15 @@ $age = 21;
     <h1>Mon profil</h1>
 
     <p>
-        Bonjour
-        <?php echo $nom; ?>
+        Bonjour, je m'appelle 
+        <?php echo $nom; ?>.
     </p>
 
     <p>
-        Vous avez
+        J'ai 
         <?php echo $age; ?>
         ans.
     </p>
-
+     <p>J'habite à <?php echo $ville; ?>.</p>
 </body>
-
 </html>
