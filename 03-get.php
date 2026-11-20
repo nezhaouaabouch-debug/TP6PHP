@@ -1,10 +1,16 @@
 <?php
 
 $nom = "";
+$ville = "";
 
 if (isset($_GET["nom"])) {
 
     $nom = $_GET["nom"];
+
+}
+if (isset($_GET["ville"])) {
+
+    $ville = $_GET["ville"];
 
 }
 
@@ -33,7 +39,15 @@ if (isset($_GET["nom"])) {
         echo "<p>Aucun nom reçu.</p>";
 
     }
+    if ($ville != "") {
 
+        echo "<p>Tu habites à " . $ville . "</p>";
+
+    } else {
+
+        echo "<p>Aucun ville reçu.</p>";
+
+    }
     ?>
 
 </body>
